@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<style type="text/css">
+	.big_box{height: 900px; width: 900px; background-color: #78756e; display: flex; flex-wrap: wrap;}
+	.smul_box{height: 270px; width: 270px; background-image: url(luk.png); margin-left: 10px; position: relative;}
+	.krot{height: 100px; width: 100px; background-image: url(isaac.png);   position: absolute; 
+		top: 100px; left: 100px; transition: 1s; background-size: 100% 100%;}
+</style>
+
+
+</head>
+<body>
+<h1>очки: <span class="shet">0</span>/200</h1>
+	<div class="big_box">
+		<div class="smul_box"></div>
+		<div class="smul_box"></div>
+		<div class="smul_box"></div>
+		<div class="smul_box"></div>
+		<div class="smul_box"></div>
+		<div class="smul_box"></div>
+		<div class="smul_box"></div>
+		<div class="smul_box"></div>
+		<div class="smul_box"></div>
+	</div>
+
+<script type="text/javascript">
+setTimeout(finish, 10000);
+function finish(){
+	
+clearInterval(in1)
+if(score == 200){
+alert("ну молодец чё")
+} 
+else{
+	alert("ты лох")
+}
+}
+
+	let norki = document.querySelectorAll(".smul_box")
+	let shet = document.querySelector(".shet") 
+	let score = 0 
+
+let in1 = setInterval(timer, 500);
+function timer(){
+	
+	let rand = Math.random() * 9; 
+	let round = Math.round(rand);
+
+	let elem = document.createElement("div");
+	norki[round].appendChild(elem)
+	elem.classList.add("krot")   
+	elem.onclick = function() {
+		elem.style.backgroundImage = "url(maslina.png)"
+		score = score + 10
+		shet.innerHTML = score 	
+		setTimeout	(hideclick, 1000)
+		function hideclick() 	{
+			elem.style.display = "none"
+			
+		}
+	}
+
+
+	setTimeout(hide, 2000);
+	function hide(){
+		 
+		elem.style.display = "none" 
+
+		}
+setTimeout(up, 500);
+	function up(){
+		elem.style.top = "-50px"; 
+		 
+}
+
+setTimeout(down, 1000);
+	function down(){
+		elem.style.top = "0px"; 
+		 
+}
+
+	}
+
+
+
+
+</script>
+
+</body>
+</html>
